@@ -7,6 +7,19 @@ class Ad extends Model
 {
     protected $fillable=['title','content','pic','pic_only','content_only'];
     //public $timestamps = false;
+/*
+    // Mutature
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title']=strtolower($value);
+    }
+
+    public function getTitleAttribute($value)
+    {
+      return strtoupper($value);
+    }
+
+ */
 
 /*     public function getAds($session)
     {

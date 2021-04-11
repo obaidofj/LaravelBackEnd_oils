@@ -23,6 +23,11 @@ Route::get('/', [
     'as' => 'root'
 ]);
 
+Route::get('get_query', [
+    'uses' => 'App\Http\Controllers\AdController@get_queries',
+    'as' => 'get_qy'
+]);
+
 Route::get('Ad/{id}', [
     'uses' => 'App\Http\Controllers\AdController@getAd',
     'as' => 'ad'
@@ -38,7 +43,7 @@ Route::get('q_cust_jobs/{id}', [
     'as' => 'q_cust_jobs'
 ]);
 
-Route::get('q_job_custrs/', [
+Route::get('q_job_custrs/{id}', [
     'uses' => 'App\Http\Controllers\AdController@q_job_custrs',
     'as' => 'q_job_custrs'
 ]);
@@ -47,9 +52,10 @@ Route::get('about', function () {
     return view('others.about');
 })->name('about');
 
-Route::get('/customers', function () {
-    return view('customers.customers');
-})->name('customers');
+Route::get('/customers', [
+    'uses' => 'App\Http\Controllers\AdController@cust_info',
+    'as' => 'customers'
+   ]);
 
 /* Route::get('admin', function () {
     return view('admin.index');

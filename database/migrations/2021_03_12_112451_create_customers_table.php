@@ -17,6 +17,7 @@ class CreateCustomersTable extends Migration
             $table->id()->autoIncrement();;
             $table->timestamps();
             $table->string('name' ,200);
+            $table->integer('id_no')->nullable();
             $table->string('mobile' ,20)->nullable();
             $table->string('company' ,200)->nullable();
             $table->string('Address' ,250)->nullable();
@@ -25,6 +26,7 @@ class CreateCustomersTable extends Migration
             $table->date('first_date')->nullable();
             $table->date('last_date')->nullable();
             $table->integer('sex' )->nullable() ;
+            $table->integer('user_id' )->nullable() ;
         });
     }
 
