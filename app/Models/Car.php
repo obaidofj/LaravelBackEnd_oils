@@ -19,5 +19,10 @@ class Car extends Model
         return $this->hasMany('App\Models\Maintenance_done');
     }
 
+    public function car_types()
+    {
+        return $this->belongsTo('App\Models\Car_type');
+    }
+
 
 }

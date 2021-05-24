@@ -16,7 +16,7 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->timestamps();
-           $table->integer('car_type' );
+           $table->integer('car_types_id' );
            $table->string('car_plate_no' )->nullable();
            $table->string('car_model_year' );
            $table->integer('fuel_type' )->nullable();

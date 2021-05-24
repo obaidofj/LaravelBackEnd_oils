@@ -55,7 +55,7 @@ Route::get('about', function () {
 Route::get('/customers', [
     'uses' => 'App\Http\Controllers\AdController@cust_info',
     'as' => 'customers'
-   ]);
+]);
 
 /* Route::get('admin', function () {
     return view('admin.index');
@@ -88,7 +88,7 @@ Route::group(['prefix' => 'admin'], function () {
         'as' => 'admin.edit'
     ]);
 
-Route::get('delete/{id}', [
+    Route::get('delete/{id}', [
         'uses' => 'App\Http\Controllers\AdController@AdDelete',
         'as' => 'admin.delete'
     ]);
@@ -97,7 +97,7 @@ Route::get('delete/{id}', [
         'uses' => 'App\Http\Controllers\AdController@AdAdminUpdate',
         'as' => 'admin.update'
     ]);
-//
+    //
     Route::get('create_cust', [
         'uses' => 'App\Http\Controllers\AdController@addCust',
         'as' => 'addCustomer'
@@ -128,14 +128,19 @@ Route::get('delete/{id}', [
         'as' => 'addMaintinance'
     ]);
 
-Route::get('job_types', [
+    Route::get('job_types', [
         'uses' => 'App\Http\Controllers\AdController@jobTypes',
         'as' => 'jobTypes'
     ]);
-Route::get('cust_job', [
+    Route::get('cust_job', [
         'uses' => 'App\Http\Controllers\AdController@addJobCust',
         'as' => 'cutomers-jobs'
     ]);
-
-
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/index', 'App\Http\Controllers\PagesController@index');
+Route::get('/index/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');

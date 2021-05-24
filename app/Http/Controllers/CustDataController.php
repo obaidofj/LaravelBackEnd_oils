@@ -93,7 +93,7 @@ class CustDataController extends Controller
     public function getById($id)
     {
         //
-        $customer=Customer::with('cars.maintinances')->where('id_no',$id)->firstOrFail();
+        $customer=Customer::with('cars.maintinances','cars.car_types')->where('id_no',$id)->firstOrFail();
 
         $response=[
             'msg'=>'customer information',
